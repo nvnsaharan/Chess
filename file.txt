@@ -1,0 +1,55 @@
+Of course! Since we are focusing on a 2D chess game without 3D graphics, we will remove the 3D-related classes. Here's the updated list of classes for the 2D chess game:
+
+1. **ChessGame** Class:
+   - Attributes:
+     - `chessboard`: The 2D array or list representing the state of the chessboard with pieces.
+     - `currentPlayer`: A variable to keep track of the current player (either "White" or "Black").
+     - `gameOver`: A boolean variable to indicate if the game is over.
+   - Methods:
+     - `initializeGame()`: Sets up the initial chessboard and starts the game.
+     - `isGameOver()`: Checks if the game has ended (e.g., checkmate or stalemate).
+     - `switchPlayer()`: Switches the current player after each move.
+     - `makeMove()`: Updates the chessboard after a valid move is made.
+     - `isMoveValid()`: Checks if a given move is valid for the selected piece.
+     - `isCheck()`: Checks if the current player's king is under check.
+     - `isCheckmate()`: Checks if the current player's king is in checkmate.
+     - `isStalemate()`: Checks if the game has resulted in a stalemate.
+     - `handleGameEnd()`: Handles actions when the game is over (e.g., display winner, restart game).
+
+2. **ChessPiece** Class (Abstract):
+   - Attributes:
+     - `color`: The color of the piece ("White" or "Black").
+     - `position`: The current position of the piece on the chessboard.
+   - Methods (Abstract):
+     - `getValidMoves()`: Returns a list of valid moves for the piece.
+     - `moveTo()`: Moves the piece to a given position on the chessboard.
+
+3. **King**, **Queen**, **Rook**, **Bishop**, **Knight**, and **Pawn** Classes (Extending ChessPiece):
+   - Each class represents a specific type of chess piece (e.g., King, Queen, etc.).
+   - Attributes and methods may vary for each piece type.
+   - The `getValidMoves()` method will be implemented differently for each piece.
+
+4. **AIPlayer** Class:
+   - Attributes:
+     - `difficultyLevel`: Represents the AI's difficulty level (e.g., easy, medium, hard).
+   - Methods:
+     - `makeMove()`: Uses the Minimax algorithm with Alpha-Beta pruning to select the best move for the AI.
+
+5. **ChessGUI** Class:
+   - Attributes:
+     - `chessboard`: Reference to the ChessGame's chessboard for display.
+     - `selectedPiece`: The currently selected piece on the GUI (if any).
+     - `validMoveSquares`: A list of squares that show where the selected piece can move.
+     - `isAIPlayerTurn`: A boolean to indicate if it's the AI player's turn.
+   - Methods:
+     - `updateChessboardGUI()`: Updates the GUI to reflect the current state of the chessboard.
+     - `onSquareClicked()`: Handles user clicks on the chessboard squares.
+     - `displayCheckmateDialog()`: Displays a dialog box when the game is in checkmate.
+     - `displayStalemateDialog()`: Displays a dialog box when the game is in stalemate.
+     - `getBestMoveFromAI()`: Requests the AIPlayer for the best move using Minimax with Alpha-Beta pruning.
+
+6. **ChatGPTAPI** Class:
+   - Methods:
+     - `requestBestMoveExplanation()`: Sends the current board state to the ChatGPT API to get the best move explanation.
+
+With the 3D-related classes removed, the focus is now on creating a 2D chess game with a user-friendly interface and AI player using Minimax with Alpha-Beta pruning. As you proceed with the implementation, remember to take a step-by-step approach and test each component thoroughly to ensure a smooth and enjoyable chess playing experience for users.
